@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Commercepundit_Blog::home" title="Blog" module="Commercepundit_Blog" sortOrder="10" parent="Magento_Backend::content" resource="Commercepundit_Blog::home"/>
+        <add id="Commercepundit_Blog::list" title="Blog List" module="Commercepundit_Blog" sortOrder="10" parent="Commercepundit_Blog::home" resource="Commercepundit_Blog::home" action="commercepundit_blog/index/index"/>
+    </menu>
+</config>

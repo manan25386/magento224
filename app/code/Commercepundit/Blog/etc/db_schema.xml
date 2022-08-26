@@ -1,0 +1,19 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cp_blog_post" resource="default" engine="innodb"
+            comment="Commercepundit blog post">
+        <column xsi:type="int" name="post_id" unsigned="false" nullable="false" identity="true" comment="Value ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false" default="0" comment="Store ID"/>
+        <column xsi:type="varchar" name="post_title" length="255" nullable="false" comment="Post Title" />
+        <column xsi:type="text" name="post_description"  nullable="false" comment="Post Desc" />
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="create at"/>
+         <column xsi:type="datetime" name="update_at" on_update="false" nullable="true" comment="update at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="post_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CP_BLOG_POST_STORE_ID_STORE_STORE_ID" table="CP_BLOG_POST" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="CP_BLOG_POST_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+    </table>
+</schema>

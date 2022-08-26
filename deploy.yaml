@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: magento-deploy
+  name: magento-deploy
+  namespace: stage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: magento-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: magento-deploy
+    spec:
+      containers:
+      - image: CONTAINER_IMAGE
+        name: magento244
+        ports:
+          - containerPort: 80
+        resources: {}
+status: {}
